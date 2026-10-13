@@ -1,0 +1,579 @@
+{
+  "scope": "Executed deterministic synthetic rules, not model inference or real commercial outcomes",
+  "baseline": {
+    "status": "GREEN",
+    "passed": 40,
+    "failed": 0,
+    "total": 40,
+    "cases": [
+      {
+        "id": "extraction-valid",
+        "title": "Recorded synthetic evidence is accepted",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "extraction-malformed",
+        "title": "Malformed extraction is rejected",
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      {
+        "id": "extraction-hallucinated",
+        "title": "Unknown evidence is rejected",
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      {
+        "id": "extraction-instructions",
+        "title": "Injected instructions are rejected",
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      {
+        "id": "extraction-market",
+        "title": "Unsupported extraction market is rejected",
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      {
+        "id": "extraction-confidence",
+        "title": "Malformed confidence metadata is rejected",
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      {
+        "id": "extraction-live",
+        "title": "Unmarked live evidence is rejected",
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      {
+        "id": "extraction-forged",
+        "title": "Forged official excerpt is rejected",
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      {
+        "id": "qualification-missing",
+        "title": "Missing qualification evidence causes abstention",
+        "expected": "abstain",
+        "actual": "abstain",
+        "pass": true
+      },
+      {
+        "id": "qualification-stale",
+        "title": "Stale qualification evidence escalates review",
+        "expected": "escalate",
+        "actual": "escalate",
+        "pass": true
+      },
+      {
+        "id": "market-unsupported",
+        "title": "Unsupported market selection is rejected",
+        "expected": "INVALID_COMMAND",
+        "actual": "INVALID_COMMAND",
+        "pass": true
+      },
+      {
+        "id": "qualification-market",
+        "title": "Unsupported account market cannot qualify",
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      {
+        "id": "member-inactive",
+        "title": "Unactivated member blocks readiness",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "invite-expired",
+        "title": "Expired invitation blocks readiness",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "billing-missing",
+        "title": "Missing company billing blocks readiness",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "policy-absent",
+        "title": "Absent group policy blocks readiness",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "service-absent",
+        "title": "Unavailable service blocks readiness",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "invitation-renewal",
+        "title": "Renewed invitation still requires member onboarding",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "invitation-onboarding",
+        "title": "Explicit member onboarding completes renewed invitation",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "revision-stale",
+        "title": "Stale revision leaves state unchanged",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "command-fields",
+        "title": "Unsupported command fields cannot mutate state",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "import-duplicate",
+        "title": "Duplicate account IDs invalidate import preview",
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      {
+        "id": "import-atomic",
+        "title": "One invalid import row prevents every row from committing",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "import-stale",
+        "title": "Stale import preview cannot commit",
+        "expected": "IMPORT_STALE",
+        "actual": "IMPORT_STALE",
+        "pass": true
+      },
+      {
+        "id": "order-unready",
+        "title": "An unready account cannot activate",
+        "expected": "rejected_unready",
+        "actual": "rejected_unready",
+        "pass": true
+      },
+      {
+        "id": "order-before-ready",
+        "title": "A backdated order before readiness cannot activate",
+        "expected": "rejected_before_ready",
+        "actual": "rejected_before_ready",
+        "pass": true
+      },
+      {
+        "id": "order-duplicate",
+        "title": "Duplicate order does not increment revision or activation",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "order-id-conflict",
+        "title": "Reused order ID with a different payload is rejected",
+        "expected": "IDEMPOTENCY_CONFLICT",
+        "actual": "IDEMPOTENCY_CONFLICT",
+        "pass": true
+      },
+      {
+        "id": "order-out-of-order",
+        "title": "Out-of-order eligible events retain the earliest first order",
+        "expected": "2026-10-13T12:30:00.000Z",
+        "actual": "2026-10-13T12:30:00.000Z",
+        "pass": true
+      },
+      {
+        "id": "order-future",
+        "title": "Future order outside the explicit clock is rejected",
+        "expected": "rejected_outside_window",
+        "actual": "rejected_outside_window",
+        "pass": true
+      },
+      {
+        "id": "message-suppression",
+        "title": "Opted-out accounts suppress synthetic messaging",
+        "expected": "opted_out",
+        "actual": "opted_out",
+        "pass": true
+      },
+      {
+        "id": "message-cap",
+        "title": "Cross-channel messages respect the daily cap",
+        "expected": "rate_cap",
+        "actual": "rate_cap",
+        "pass": true
+      },
+      {
+        "id": "holdout-suppression",
+        "title": "Holdout assignment suppresses treatment messages",
+        "expected": "holdout",
+        "actual": "holdout",
+        "pass": true
+      },
+      {
+        "id": "cohort-contamination",
+        "title": "Manual holdout exposure is reported as contamination",
+        "expected": 1,
+        "actual": 1,
+        "pass": true
+      },
+      {
+        "id": "denominator-missing",
+        "title": "Missing denominator prevents reporting a rate difference",
+        "expected": null,
+        "actual": null,
+        "pass": true
+      },
+      {
+        "id": "cohort-member-missing",
+        "title": "Missing frozen cohort member invalidates denominator",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "window-incomplete",
+        "title": "Incomplete experiment window is explicitly disclosed",
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      {
+        "id": "cohort-import-exclusion",
+        "title": "Imported accounts stay outside the frozen denominator",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "happy-path-fixed-clock",
+        "title": "Reviewed setup reaches first eligible synthetic activation",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "ttfo-censoring",
+        "title": "Descriptive TTFO excludes unconverted censored accounts",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      }
+    ]
+  },
+  "negativeControl": {
+    "status": "RED",
+    "passed": 33,
+    "failed": 7,
+    "total": 40,
+    "cases": [
+      {
+        "id": "extraction-valid",
+        "title": "Recorded synthetic evidence is accepted",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "extraction-malformed",
+        "title": "Malformed extraction is rejected",
+        "expected": false,
+        "actual": true,
+        "pass": false
+      },
+      {
+        "id": "extraction-hallucinated",
+        "title": "Unknown evidence is rejected",
+        "expected": false,
+        "actual": true,
+        "pass": false
+      },
+      {
+        "id": "extraction-instructions",
+        "title": "Injected instructions are rejected",
+        "expected": false,
+        "actual": true,
+        "pass": false
+      },
+      {
+        "id": "extraction-market",
+        "title": "Unsupported extraction market is rejected",
+        "expected": false,
+        "actual": true,
+        "pass": false
+      },
+      {
+        "id": "extraction-confidence",
+        "title": "Malformed confidence metadata is rejected",
+        "expected": false,
+        "actual": true,
+        "pass": false
+      },
+      {
+        "id": "extraction-live",
+        "title": "Unmarked live evidence is rejected",
+        "expected": false,
+        "actual": true,
+        "pass": false
+      },
+      {
+        "id": "extraction-forged",
+        "title": "Forged official excerpt is rejected",
+        "expected": false,
+        "actual": true,
+        "pass": false
+      },
+      {
+        "id": "qualification-missing",
+        "title": "Missing qualification evidence causes abstention",
+        "expected": "abstain",
+        "actual": "abstain",
+        "pass": true
+      },
+      {
+        "id": "qualification-stale",
+        "title": "Stale qualification evidence escalates review",
+        "expected": "escalate",
+        "actual": "escalate",
+        "pass": true
+      },
+      {
+        "id": "market-unsupported",
+        "title": "Unsupported market selection is rejected",
+        "expected": "INVALID_COMMAND",
+        "actual": "INVALID_COMMAND",
+        "pass": true
+      },
+      {
+        "id": "qualification-market",
+        "title": "Unsupported account market cannot qualify",
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      {
+        "id": "member-inactive",
+        "title": "Unactivated member blocks readiness",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "invite-expired",
+        "title": "Expired invitation blocks readiness",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "billing-missing",
+        "title": "Missing company billing blocks readiness",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "policy-absent",
+        "title": "Absent group policy blocks readiness",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "service-absent",
+        "title": "Unavailable service blocks readiness",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "invitation-renewal",
+        "title": "Renewed invitation still requires member onboarding",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "invitation-onboarding",
+        "title": "Explicit member onboarding completes renewed invitation",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "revision-stale",
+        "title": "Stale revision leaves state unchanged",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "command-fields",
+        "title": "Unsupported command fields cannot mutate state",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "import-duplicate",
+        "title": "Duplicate account IDs invalidate import preview",
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      {
+        "id": "import-atomic",
+        "title": "One invalid import row prevents every row from committing",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "import-stale",
+        "title": "Stale import preview cannot commit",
+        "expected": "IMPORT_STALE",
+        "actual": "IMPORT_STALE",
+        "pass": true
+      },
+      {
+        "id": "order-unready",
+        "title": "An unready account cannot activate",
+        "expected": "rejected_unready",
+        "actual": "rejected_unready",
+        "pass": true
+      },
+      {
+        "id": "order-before-ready",
+        "title": "A backdated order before readiness cannot activate",
+        "expected": "rejected_before_ready",
+        "actual": "rejected_before_ready",
+        "pass": true
+      },
+      {
+        "id": "order-duplicate",
+        "title": "Duplicate order does not increment revision or activation",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "order-id-conflict",
+        "title": "Reused order ID with a different payload is rejected",
+        "expected": "IDEMPOTENCY_CONFLICT",
+        "actual": "IDEMPOTENCY_CONFLICT",
+        "pass": true
+      },
+      {
+        "id": "order-out-of-order",
+        "title": "Out-of-order eligible events retain the earliest first order",
+        "expected": "2026-10-13T12:30:00.000Z",
+        "actual": "2026-10-13T12:30:00.000Z",
+        "pass": true
+      },
+      {
+        "id": "order-future",
+        "title": "Future order outside the explicit clock is rejected",
+        "expected": "rejected_outside_window",
+        "actual": "rejected_outside_window",
+        "pass": true
+      },
+      {
+        "id": "message-suppression",
+        "title": "Opted-out accounts suppress synthetic messaging",
+        "expected": "opted_out",
+        "actual": "opted_out",
+        "pass": true
+      },
+      {
+        "id": "message-cap",
+        "title": "Cross-channel messages respect the daily cap",
+        "expected": "rate_cap",
+        "actual": "rate_cap",
+        "pass": true
+      },
+      {
+        "id": "holdout-suppression",
+        "title": "Holdout assignment suppresses treatment messages",
+        "expected": "holdout",
+        "actual": "holdout",
+        "pass": true
+      },
+      {
+        "id": "cohort-contamination",
+        "title": "Manual holdout exposure is reported as contamination",
+        "expected": 1,
+        "actual": 1,
+        "pass": true
+      },
+      {
+        "id": "denominator-missing",
+        "title": "Missing denominator prevents reporting a rate difference",
+        "expected": null,
+        "actual": null,
+        "pass": true
+      },
+      {
+        "id": "cohort-member-missing",
+        "title": "Missing frozen cohort member invalidates denominator",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "window-incomplete",
+        "title": "Incomplete experiment window is explicitly disclosed",
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      {
+        "id": "cohort-import-exclusion",
+        "title": "Imported accounts stay outside the frozen denominator",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "happy-path-fixed-clock",
+        "title": "Reviewed setup reaches first eligible synthetic activation",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      {
+        "id": "ttfo-censoring",
+        "title": "Descriptive TTFO excludes unconverted censored accounts",
+        "expected": true,
+        "actual": true,
+        "pass": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "b4b-activation-proof",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-10-13",
+  "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": true },
+  "durable_objects": { "bindings": [{ "name": "SESSIONS", "class_name": "ActivationSession" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["ActivationSession"] }]
+}

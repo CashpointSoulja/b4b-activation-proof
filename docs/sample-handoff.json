@@ -1,0 +1,1250 @@
+{
+  "scope": "Unofficial concept. Synthetic accounts and events only.",
+  "exportedRevision": 4,
+  "state": {
+    "revision": 4,
+    "generation": 0,
+    "now": "2026-10-14T12:00:00.000Z",
+    "marketId": "uk",
+    "profiles": [
+      {
+        "id": "uk",
+        "name": "United Kingdom",
+        "language": "en",
+        "setup": "Self serve",
+        "support": "Digital help",
+        "assumption": true,
+        "note": "Hypothetical English language self serve setup; availability is simulated."
+      },
+      {
+        "id": "lt",
+        "name": "Lithuania",
+        "language": "lt",
+        "setup": "Guided setup",
+        "support": "Localized guidance",
+        "assumption": true,
+        "note": "Hypothetical Lithuanian language guidance; availability is simulated."
+      },
+      {
+        "id": "ke",
+        "name": "Kenya",
+        "language": "en",
+        "setup": "Assisted setup",
+        "support": "Operations handoff",
+        "assumption": true,
+        "note": "Hypothetical English language assisted setup; availability is simulated."
+      }
+    ],
+    "sources": [
+      {
+        "id": "bolt-support-45861",
+        "title": "Member statuses",
+        "url": "https://bolt.eu/en/support/articles/45861/",
+        "accessedAt": "2026-10-13",
+        "claim": "company_pay_member_active",
+        "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+      },
+      {
+        "id": "bolt-support-32674",
+        "title": "Group policies",
+        "url": "https://bolt.eu/en-lt/support/articles/32674/",
+        "accessedAt": "2026-10-13",
+        "claim": "group_policy",
+        "excerpt": "Policies are rules set for a particular employee group(s) on how they can use the business payment method.",
+        "exclusion": "Please note: Policies will not apply to Ride Booker trips."
+      },
+      {
+        "id": "bolt-support-62851",
+        "title": "Business account capabilities",
+        "url": "https://bolt.eu/en/support/articles/62851/",
+        "accessedAt": "2026-10-13",
+        "claim": "order_history",
+        "excerpt": "Check all orders made with the company’s payment method"
+      }
+    ],
+    "limits": {
+      "accounts": 48,
+      "importRows": 20,
+      "receipts": 150,
+      "audit": 200,
+      "outbox": 50,
+      "bodyBytes": 24576,
+      "stateBytes": 112640,
+      "requestsPerMinute": 30,
+      "requestsPerSession": 240,
+      "sessionHours": 24
+    },
+    "accounts": [
+      {
+        "id": "uk-lumen",
+        "name": "Lumen Studio",
+        "marketId": "uk",
+        "service": "ride",
+        "paymentMode": "company_pay",
+        "synthetic": true,
+        "billingValidated": true,
+        "memberActive": true,
+        "groupPolicy": true,
+        "serviceAvailable": true,
+        "invitationStatus": "active",
+        "optedOut": false,
+        "evidence": {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-uk-lumen-v1",
+          "accountId": "uk-lumen",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ],
+          "sourceId": "bolt-support-45861",
+          "claim": "company_pay_member_active",
+          "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete.",
+          "source": "https://bolt.eu/en/support/articles/45861/",
+          "title": "Member statuses",
+          "provenance": "recorded_synthetic_fixture"
+        },
+        "gateTimes": {
+          "billing": "2026-10-14T12:00:00.000Z",
+          "member": "2026-10-13T12:00:00.000Z",
+          "group": "2026-10-13T12:00:00.000Z",
+          "service": "2026-10-13T12:00:00.000Z",
+          "invitation": "2026-10-13T12:00:00.000Z"
+        },
+        "firstOrder": {
+          "eventId": "first-order-0-3a000a06-cc5f-4314-8df4-26e7fc800e0d",
+          "occurredAt": "2026-10-14T12:00:00.000Z"
+        },
+        "exposures": [],
+        "variant": "treatment",
+        "cohortExcluded": false,
+        "qualification": {
+          "status": "qualified",
+          "reason": "Recorded synthetic account facts and allowlisted capability evidence validated.",
+          "owner": "Account owner",
+          "action": "Complete the remaining setup prerequisite; confidence is metadata, not a truth threshold."
+        },
+        "readiness": {
+          "ready": true,
+          "missing": [],
+          "owner": "Account owner",
+          "action": "Simulate the first eligible company-pay ride."
+        }
+      },
+      {
+        "id": "uk-ridge",
+        "name": "Ridge Workshop",
+        "marketId": "uk",
+        "service": "ride",
+        "paymentMode": "company_pay",
+        "synthetic": true,
+        "billingValidated": true,
+        "memberActive": true,
+        "groupPolicy": true,
+        "serviceAvailable": true,
+        "invitationStatus": "active",
+        "optedOut": false,
+        "evidence": null,
+        "gateTimes": {
+          "billing": "2026-10-13T12:00:00.000Z",
+          "member": "2026-10-13T12:00:00.000Z",
+          "group": "2026-10-13T12:00:00.000Z",
+          "service": "2026-10-13T12:00:00.000Z",
+          "invitation": "2026-10-13T12:00:00.000Z"
+        },
+        "firstOrder": null,
+        "exposures": [],
+        "variant": "treatment",
+        "cohortExcluded": false,
+        "qualification": {
+          "status": "abstain",
+          "reason": "Account evidence is unknown.",
+          "owner": "Account owner",
+          "action": "Review the recorded synthetic intake; do not infer missing facts."
+        },
+        "readiness": {
+          "ready": false,
+          "missing": [
+            "evidence"
+          ],
+          "owner": "Account owner",
+          "action": "Review the recorded synthetic intake; do not infer missing facts."
+        }
+      },
+      {
+        "id": "uk-harbor",
+        "name": "Harbor Office",
+        "marketId": "uk",
+        "service": "ride",
+        "paymentMode": "company_pay",
+        "synthetic": true,
+        "billingValidated": true,
+        "memberActive": true,
+        "groupPolicy": true,
+        "serviceAvailable": true,
+        "invitationStatus": "active",
+        "optedOut": false,
+        "evidence": {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-uk-harbor-v1",
+          "accountId": "uk-harbor",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ],
+          "sourceId": "bolt-support-45861",
+          "claim": "company_pay_member_active",
+          "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete.",
+          "source": "https://bolt.eu/en/support/articles/45861/",
+          "title": "Member statuses",
+          "provenance": "recorded_synthetic_fixture"
+        },
+        "gateTimes": {
+          "billing": "2026-10-13T12:00:00.000Z",
+          "member": "2026-10-13T12:00:00.000Z",
+          "group": "2026-10-13T12:00:00.000Z",
+          "service": "2026-10-13T12:00:00.000Z",
+          "invitation": "2026-10-13T12:00:00.000Z"
+        },
+        "firstOrder": null,
+        "exposures": [],
+        "variant": "treatment",
+        "cohortExcluded": false,
+        "qualification": {
+          "status": "qualified",
+          "reason": "Recorded synthetic account facts and allowlisted capability evidence validated.",
+          "owner": "Account owner",
+          "action": "Complete the remaining setup prerequisite; confidence is metadata, not a truth threshold."
+        },
+        "readiness": {
+          "ready": true,
+          "missing": [],
+          "owner": "Account owner",
+          "action": "Simulate the first eligible company-pay ride."
+        }
+      },
+      {
+        "id": "uk-orbit",
+        "name": "Orbit Team",
+        "marketId": "uk",
+        "service": "ride",
+        "paymentMode": "company_pay",
+        "synthetic": true,
+        "billingValidated": true,
+        "memberActive": false,
+        "groupPolicy": true,
+        "serviceAvailable": true,
+        "invitationStatus": "invited",
+        "optedOut": false,
+        "evidence": {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-uk-orbit-v1",
+          "accountId": "uk-orbit",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ],
+          "sourceId": "bolt-support-45861",
+          "claim": "company_pay_member_active",
+          "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete.",
+          "source": "https://bolt.eu/en/support/articles/45861/",
+          "title": "Member statuses",
+          "provenance": "recorded_synthetic_fixture"
+        },
+        "gateTimes": {
+          "billing": "2026-10-13T12:00:00.000Z",
+          "member": "2026-10-13T12:00:00.000Z",
+          "group": "2026-10-13T12:00:00.000Z",
+          "service": "2026-10-13T12:00:00.000Z",
+          "invitation": "2026-10-13T12:00:00.000Z"
+        },
+        "firstOrder": null,
+        "exposures": [],
+        "variant": "holdout",
+        "cohortExcluded": false,
+        "qualification": {
+          "status": "qualified",
+          "reason": "Recorded synthetic account facts and allowlisted capability evidence validated.",
+          "owner": "Account owner",
+          "action": "Complete the remaining setup prerequisite; confidence is metadata, not a truth threshold."
+        },
+        "readiness": {
+          "ready": false,
+          "missing": [
+            "member"
+          ],
+          "owner": "Company administrator",
+          "action": "Complete company-pay member onboarding to Active."
+        }
+      },
+      {
+        "id": "lt-linden",
+        "name": "Linden Design",
+        "marketId": "lt",
+        "service": "ride",
+        "paymentMode": "company_pay",
+        "synthetic": true,
+        "billingValidated": true,
+        "memberActive": false,
+        "groupPolicy": true,
+        "serviceAvailable": true,
+        "invitationStatus": "expired",
+        "optedOut": false,
+        "evidence": {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-lt-linden-v1",
+          "accountId": "lt-linden",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "lt",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ],
+          "sourceId": "bolt-support-45861",
+          "claim": "company_pay_member_active",
+          "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete.",
+          "source": "https://bolt.eu/en/support/articles/45861/",
+          "title": "Member statuses",
+          "provenance": "recorded_synthetic_fixture"
+        },
+        "gateTimes": {
+          "billing": "2026-10-13T12:00:00.000Z",
+          "member": "2026-10-13T12:00:00.000Z",
+          "group": "2026-10-13T12:00:00.000Z",
+          "service": "2026-10-13T12:00:00.000Z",
+          "invitation": "2026-10-13T12:00:00.000Z"
+        },
+        "firstOrder": null,
+        "exposures": [],
+        "variant": "treatment",
+        "cohortExcluded": false,
+        "qualification": {
+          "status": "qualified",
+          "reason": "Recorded synthetic account facts and allowlisted capability evidence validated.",
+          "owner": "Account owner",
+          "action": "Complete the remaining setup prerequisite; confidence is metadata, not a truth threshold."
+        },
+        "readiness": {
+          "ready": false,
+          "missing": [
+            "invitation",
+            "member"
+          ],
+          "owner": "Company administrator",
+          "action": "Renew the expired synthetic invitation."
+        }
+      },
+      {
+        "id": "lt-river",
+        "name": "River Bureau",
+        "marketId": "lt",
+        "service": "ride",
+        "paymentMode": "company_pay",
+        "synthetic": true,
+        "billingValidated": true,
+        "memberActive": true,
+        "groupPolicy": false,
+        "serviceAvailable": true,
+        "invitationStatus": "active",
+        "optedOut": false,
+        "evidence": {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-lt-river-v1",
+          "accountId": "lt-river",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "lt",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ],
+          "sourceId": "bolt-support-45861",
+          "claim": "company_pay_member_active",
+          "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete.",
+          "source": "https://bolt.eu/en/support/articles/45861/",
+          "title": "Member statuses",
+          "provenance": "recorded_synthetic_fixture"
+        },
+        "gateTimes": {
+          "billing": "2026-10-13T12:00:00.000Z",
+          "member": "2026-10-13T12:00:00.000Z",
+          "group": "2026-10-13T12:00:00.000Z",
+          "service": "2026-10-13T12:00:00.000Z",
+          "invitation": "2026-10-13T12:00:00.000Z"
+        },
+        "firstOrder": null,
+        "exposures": [],
+        "variant": "treatment",
+        "cohortExcluded": false,
+        "qualification": {
+          "status": "qualified",
+          "reason": "Recorded synthetic account facts and allowlisted capability evidence validated.",
+          "owner": "Account owner",
+          "action": "Complete the remaining setup prerequisite; confidence is metadata, not a truth threshold."
+        },
+        "readiness": {
+          "ready": false,
+          "missing": [
+            "group"
+          ],
+          "owner": "Company administrator",
+          "action": "Confirm the synthetic group policy allows this ride."
+        }
+      },
+      {
+        "id": "lt-amber",
+        "name": "Amber Lab",
+        "marketId": "lt",
+        "service": "ride",
+        "paymentMode": "company_pay",
+        "synthetic": true,
+        "billingValidated": true,
+        "memberActive": true,
+        "groupPolicy": true,
+        "serviceAvailable": true,
+        "invitationStatus": "active",
+        "optedOut": false,
+        "evidence": {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-lt-amber-v1",
+          "accountId": "lt-amber",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "lt",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ],
+          "sourceId": "bolt-support-45861",
+          "claim": "company_pay_member_active",
+          "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete.",
+          "source": "https://bolt.eu/en/support/articles/45861/",
+          "title": "Member statuses",
+          "provenance": "recorded_synthetic_fixture"
+        },
+        "gateTimes": {
+          "billing": "2026-10-13T12:00:00.000Z",
+          "member": "2026-10-13T12:00:00.000Z",
+          "group": "2026-10-13T12:00:00.000Z",
+          "service": "2026-10-13T12:00:00.000Z",
+          "invitation": "2026-10-13T12:00:00.000Z"
+        },
+        "firstOrder": null,
+        "exposures": [],
+        "variant": "treatment",
+        "cohortExcluded": false,
+        "qualification": {
+          "status": "qualified",
+          "reason": "Recorded synthetic account facts and allowlisted capability evidence validated.",
+          "owner": "Account owner",
+          "action": "Complete the remaining setup prerequisite; confidence is metadata, not a truth threshold."
+        },
+        "readiness": {
+          "ready": true,
+          "missing": [],
+          "owner": "Account owner",
+          "action": "Simulate the first eligible company-pay ride."
+        }
+      },
+      {
+        "id": "lt-north",
+        "name": "North Makers",
+        "marketId": "lt",
+        "service": "ride",
+        "paymentMode": "company_pay",
+        "synthetic": true,
+        "billingValidated": true,
+        "memberActive": true,
+        "groupPolicy": true,
+        "serviceAvailable": true,
+        "invitationStatus": "active",
+        "optedOut": false,
+        "evidence": {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-lt-north-v1",
+          "accountId": "lt-north",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "lt",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ],
+          "sourceId": "bolt-support-45861",
+          "claim": "company_pay_member_active",
+          "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete.",
+          "source": "https://bolt.eu/en/support/articles/45861/",
+          "title": "Member statuses",
+          "provenance": "recorded_synthetic_fixture"
+        },
+        "gateTimes": {
+          "billing": "2026-10-13T12:00:00.000Z",
+          "member": "2026-10-13T12:00:00.000Z",
+          "group": "2026-10-13T12:00:00.000Z",
+          "service": "2026-10-13T12:00:00.000Z",
+          "invitation": "2026-10-13T12:00:00.000Z"
+        },
+        "firstOrder": null,
+        "exposures": [],
+        "variant": "treatment",
+        "cohortExcluded": false,
+        "qualification": {
+          "status": "qualified",
+          "reason": "Recorded synthetic account facts and allowlisted capability evidence validated.",
+          "owner": "Account owner",
+          "action": "Complete the remaining setup prerequisite; confidence is metadata, not a truth threshold."
+        },
+        "readiness": {
+          "ready": true,
+          "missing": [],
+          "owner": "Account owner",
+          "action": "Simulate the first eligible company-pay ride."
+        }
+      },
+      {
+        "id": "ke-acacia",
+        "name": "Acacia Team",
+        "marketId": "ke",
+        "service": "ride",
+        "paymentMode": "company_pay",
+        "synthetic": true,
+        "billingValidated": true,
+        "memberActive": true,
+        "groupPolicy": true,
+        "serviceAvailable": false,
+        "invitationStatus": "active",
+        "optedOut": false,
+        "evidence": {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-ke-acacia-v1",
+          "accountId": "ke-acacia",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ],
+          "sourceId": "bolt-support-45861",
+          "claim": "company_pay_member_active",
+          "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete.",
+          "source": "https://bolt.eu/en/support/articles/45861/",
+          "title": "Member statuses",
+          "provenance": "recorded_synthetic_fixture"
+        },
+        "gateTimes": {
+          "billing": "2026-10-13T12:00:00.000Z",
+          "member": "2026-10-13T12:00:00.000Z",
+          "group": "2026-10-13T12:00:00.000Z",
+          "service": "2026-10-13T12:00:00.000Z",
+          "invitation": "2026-10-13T12:00:00.000Z"
+        },
+        "firstOrder": null,
+        "exposures": [],
+        "variant": "treatment",
+        "cohortExcluded": false,
+        "qualification": {
+          "status": "qualified",
+          "reason": "Recorded synthetic account facts and allowlisted capability evidence validated.",
+          "owner": "Account owner",
+          "action": "Complete the remaining setup prerequisite; confidence is metadata, not a truth threshold."
+        },
+        "readiness": {
+          "ready": false,
+          "missing": [
+            "service"
+          ],
+          "owner": "Local operations",
+          "action": "Confirm simulated ride availability for this profile."
+        }
+      },
+      {
+        "id": "ke-summit",
+        "name": "Summit Studio",
+        "marketId": "ke",
+        "service": "ride",
+        "paymentMode": "company_pay",
+        "synthetic": true,
+        "billingValidated": true,
+        "memberActive": true,
+        "groupPolicy": true,
+        "serviceAvailable": true,
+        "invitationStatus": "active",
+        "optedOut": false,
+        "evidence": {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-ke-summit-v1",
+          "accountId": "ke-summit",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ],
+          "sourceId": "bolt-support-45861",
+          "claim": "company_pay_member_active",
+          "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete.",
+          "source": "https://bolt.eu/en/support/articles/45861/",
+          "title": "Member statuses",
+          "provenance": "recorded_synthetic_fixture"
+        },
+        "gateTimes": {
+          "billing": "2026-10-13T12:00:00.000Z",
+          "member": "2026-10-13T12:00:00.000Z",
+          "group": "2026-10-13T12:00:00.000Z",
+          "service": "2026-10-13T12:00:00.000Z",
+          "invitation": "2026-10-13T12:00:00.000Z"
+        },
+        "firstOrder": null,
+        "exposures": [],
+        "variant": "treatment",
+        "cohortExcluded": false,
+        "qualification": {
+          "status": "qualified",
+          "reason": "Recorded synthetic account facts and allowlisted capability evidence validated.",
+          "owner": "Account owner",
+          "action": "Complete the remaining setup prerequisite; confidence is metadata, not a truth threshold."
+        },
+        "readiness": {
+          "ready": true,
+          "missing": [],
+          "owner": "Account owner",
+          "action": "Simulate the first eligible company-pay ride."
+        }
+      },
+      {
+        "id": "ke-coast",
+        "name": "Coast Workshop",
+        "marketId": "ke",
+        "service": "ride",
+        "paymentMode": "company_pay",
+        "synthetic": true,
+        "billingValidated": false,
+        "memberActive": true,
+        "groupPolicy": true,
+        "serviceAvailable": true,
+        "invitationStatus": "active",
+        "optedOut": false,
+        "evidence": {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-ke-coast-v1",
+          "accountId": "ke-coast",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ],
+          "sourceId": "bolt-support-45861",
+          "claim": "company_pay_member_active",
+          "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete.",
+          "source": "https://bolt.eu/en/support/articles/45861/",
+          "title": "Member statuses",
+          "provenance": "recorded_synthetic_fixture"
+        },
+        "gateTimes": {
+          "billing": "2026-10-13T12:00:00.000Z",
+          "member": "2026-10-13T12:00:00.000Z",
+          "group": "2026-10-13T12:00:00.000Z",
+          "service": "2026-10-13T12:00:00.000Z",
+          "invitation": "2026-10-13T12:00:00.000Z"
+        },
+        "firstOrder": null,
+        "exposures": [],
+        "variant": "treatment",
+        "cohortExcluded": false,
+        "qualification": {
+          "status": "qualified",
+          "reason": "Recorded synthetic account facts and allowlisted capability evidence validated.",
+          "owner": "Account owner",
+          "action": "Complete the remaining setup prerequisite; confidence is metadata, not a truth threshold."
+        },
+        "readiness": {
+          "ready": false,
+          "missing": [
+            "billing"
+          ],
+          "owner": "Billing administrator",
+          "action": "Validate synthetic company billing."
+        }
+      },
+      {
+        "id": "ke-mosaic",
+        "name": "Mosaic Office",
+        "marketId": "ke",
+        "service": "ride",
+        "paymentMode": "company_pay",
+        "synthetic": true,
+        "billingValidated": true,
+        "memberActive": true,
+        "groupPolicy": true,
+        "serviceAvailable": true,
+        "invitationStatus": "active",
+        "optedOut": false,
+        "evidence": {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-ke-mosaic-v1",
+          "accountId": "ke-mosaic",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ],
+          "sourceId": "bolt-support-45861",
+          "claim": "company_pay_member_active",
+          "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete.",
+          "source": "https://bolt.eu/en/support/articles/45861/",
+          "title": "Member statuses",
+          "provenance": "recorded_synthetic_fixture"
+        },
+        "gateTimes": {
+          "billing": "2026-10-13T12:00:00.000Z",
+          "member": "2026-10-13T12:00:00.000Z",
+          "group": "2026-10-13T12:00:00.000Z",
+          "service": "2026-10-13T12:00:00.000Z",
+          "invitation": "2026-10-13T12:00:00.000Z"
+        },
+        "firstOrder": null,
+        "exposures": [],
+        "variant": "holdout",
+        "cohortExcluded": false,
+        "qualification": {
+          "status": "qualified",
+          "reason": "Recorded synthetic account facts and allowlisted capability evidence validated.",
+          "owner": "Account owner",
+          "action": "Complete the remaining setup prerequisite; confidence is metadata, not a truth threshold."
+        },
+        "readiness": {
+          "ready": true,
+          "missing": [],
+          "owner": "Account owner",
+          "action": "Simulate the first eligible company-pay ride."
+        }
+      }
+    ],
+    "audit": [
+      {
+        "id": "audit-0-1-0",
+        "at": "2026-10-14T12:00:00.000Z",
+        "type": "advance_clock",
+        "accountId": null,
+        "result": {
+          "now": "2026-10-14T12:00:00.000Z"
+        }
+      },
+      {
+        "id": "audit-0-2-1",
+        "at": "2026-10-14T12:00:00.000Z",
+        "type": "resolve_prerequisite",
+        "accountId": "uk-lumen",
+        "result": {
+          "accountId": "uk-lumen",
+          "resolved": "billing",
+          "readiness": {
+            "ready": true,
+            "missing": [],
+            "owner": "Account owner",
+            "action": "Simulate the first eligible company-pay ride."
+          }
+        }
+      },
+      {
+        "id": "audit-0-3-2",
+        "at": "2026-10-14T12:00:00.000Z",
+        "type": "simulate_order",
+        "accountId": "uk-lumen",
+        "result": {
+          "eventId": "first-order-0-3a000a06-cc5f-4314-8df4-26e7fc800e0d",
+          "accountId": "uk-lumen",
+          "status": "accepted",
+          "occurredAt": "2026-10-14T12:00:00.000Z",
+          "outOfOrder": false,
+          "firstOrder": {
+            "eventId": "first-order-0-3a000a06-cc5f-4314-8df4-26e7fc800e0d",
+            "occurredAt": "2026-10-14T12:00:00.000Z"
+          },
+          "missing": [],
+          "synthetic": true
+        }
+      },
+      {
+        "id": "audit-0-4-3",
+        "at": "2026-10-14T12:00:00.000Z",
+        "type": "simulate_order",
+        "accountId": "uk-lumen",
+        "result": {
+          "eventId": "earlier-order-0-3cd7b3c5-5327-4b55-a808-31a77ad703f5",
+          "accountId": "uk-lumen",
+          "status": "rejected_before_ready",
+          "occurredAt": "2026-10-14T11:00:00.000Z",
+          "outOfOrder": true,
+          "firstOrder": {
+            "eventId": "first-order-0-3a000a06-cc5f-4314-8df4-26e7fc800e0d",
+            "occurredAt": "2026-10-14T12:00:00.000Z"
+          },
+          "missing": [],
+          "synthetic": true
+        }
+      }
+    ],
+    "auditTrimmed": 0,
+    "outbox": [],
+    "receipts": [
+      {
+        "eventId": "first-order-0-3a000a06-cc5f-4314-8df4-26e7fc800e0d",
+        "fingerprint": "{\"accountId\":\"uk-lumen\",\"eventId\":\"first-order-0-3a000a06-cc5f-4314-8df4-26e7fc800e0d\",\"occurredAt\":\"2026-10-14T12:00:00.000Z\",\"type\":\"simulate_order\"}",
+        "result": {
+          "eventId": "first-order-0-3a000a06-cc5f-4314-8df4-26e7fc800e0d",
+          "accountId": "uk-lumen",
+          "status": "accepted",
+          "occurredAt": "2026-10-14T12:00:00.000Z",
+          "outOfOrder": false,
+          "firstOrder": {
+            "eventId": "first-order-0-3a000a06-cc5f-4314-8df4-26e7fc800e0d",
+            "occurredAt": "2026-10-14T12:00:00.000Z"
+          },
+          "missing": [],
+          "synthetic": true
+        },
+        "at": "2026-10-14T12:00:00.000Z"
+      },
+      {
+        "eventId": "earlier-order-0-3cd7b3c5-5327-4b55-a808-31a77ad703f5",
+        "fingerprint": "{\"accountId\":\"uk-lumen\",\"eventId\":\"earlier-order-0-3cd7b3c5-5327-4b55-a808-31a77ad703f5\",\"occurredAt\":\"2026-10-14T11:00:00.000Z\",\"type\":\"simulate_order\"}",
+        "result": {
+          "eventId": "earlier-order-0-3cd7b3c5-5327-4b55-a808-31a77ad703f5",
+          "accountId": "uk-lumen",
+          "status": "rejected_before_ready",
+          "occurredAt": "2026-10-14T11:00:00.000Z",
+          "outOfOrder": true,
+          "firstOrder": {
+            "eventId": "first-order-0-3a000a06-cc5f-4314-8df4-26e7fc800e0d",
+            "occurredAt": "2026-10-14T12:00:00.000Z"
+          },
+          "missing": [],
+          "synthetic": true
+        },
+        "at": "2026-10-14T12:00:00.000Z"
+      }
+    ],
+    "previews": [],
+    "extraction": {
+      "accepted": [],
+      "rejected": [],
+      "fixtures": [
+        {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-uk-lumen-v1",
+          "accountId": "uk-lumen",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ]
+        },
+        {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-uk-ridge-v1",
+          "accountId": "uk-ridge",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ]
+        },
+        {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-uk-harbor-v1",
+          "accountId": "uk-harbor",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ]
+        },
+        {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-uk-orbit-v1",
+          "accountId": "uk-orbit",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ]
+        },
+        {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-lt-linden-v1",
+          "accountId": "lt-linden",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "lt",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ]
+        },
+        {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-lt-river-v1",
+          "accountId": "lt-river",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "lt",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ]
+        },
+        {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-lt-amber-v1",
+          "accountId": "lt-amber",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "lt",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ]
+        },
+        {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-lt-north-v1",
+          "accountId": "lt-north",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "lt",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ]
+        },
+        {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-ke-acacia-v1",
+          "accountId": "ke-acacia",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ]
+        },
+        {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-ke-summit-v1",
+          "accountId": "ke-summit",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ]
+        },
+        {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-ke-coast-v1",
+          "accountId": "ke-coast",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ]
+        },
+        {
+          "schemaVersion": 1,
+          "synthetic": true,
+          "fixtureId": "recorded-ke-mosaic-v1",
+          "accountId": "ke-mosaic",
+          "service": "ride",
+          "paymentMode": "company_pay",
+          "businessUse": true,
+          "consentToSetup": true,
+          "language": "en",
+          "confidence": 0.92,
+          "observedAt": "2026-10-13T12:00:00.000Z",
+          "evidence": [
+            {
+              "sourceId": "bolt-support-45861",
+              "claim": "company_pay_member_active",
+              "excerpt": "No payment method — the member activated their account but hasn't added a payment card yet. This status only appears on employee-pay accounts — on a company-pay account, the member moves straight to Active once onboarding is complete."
+            }
+          ]
+        }
+      ]
+    },
+    "experiment": {
+      "start": "2026-10-13T12:00:00.000Z",
+      "end": "2026-10-20T12:00:00.000Z",
+      "cohortIds": [
+        "uk-lumen",
+        "uk-ridge",
+        "uk-harbor",
+        "uk-orbit",
+        "lt-linden",
+        "lt-river",
+        "lt-amber",
+        "lt-north",
+        "ke-acacia",
+        "ke-summit",
+        "ke-coast",
+        "ke-mosaic"
+      ],
+      "assignment": "Stable FNV-1a account hash; 25% nominal holdout. Assignment and cohort frozen before synthetic exposure."
+    },
+    "summary": {
+      "qualified": 11,
+      "ready": 6,
+      "activated": 1,
+      "cohortSize": 12,
+      "arms": {
+        "treatment": {
+          "numerator": 1,
+          "denominator": 10,
+          "rate": 0.1,
+          "exposed": 0,
+          "contaminated": 0,
+          "ttfo": {
+            "meanHours": 24,
+            "medianHours": 24,
+            "observed": 1,
+            "censored": 9,
+            "definition": "Hours from fixed synthetic enrollment to first eligible order; observed converters only."
+          }
+        },
+        "holdout": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0,
+          "exposed": 0,
+          "contaminated": 0,
+          "ttfo": {
+            "meanHours": null,
+            "medianHours": null,
+            "observed": 0,
+            "censored": 2,
+            "definition": "Hours from fixed synthetic enrollment to first eligible order; observed converters only."
+          }
+        }
+      },
+      "descriptiveDifferencePp": 10,
+      "missingDenominator": false,
+      "denominatorStatus": "complete",
+      "missingCohortIds": [],
+      "window": {
+        "start": "2026-10-13T12:00:00.000Z",
+        "end": "2026-10-20T12:00:00.000Z",
+        "now": "2026-10-14T12:00:00.000Z",
+        "complete": false,
+        "status": "incomplete",
+        "observedWindowComplete": false,
+        "censored": 11
+      },
+      "exclusions": [],
+      "contamination": 0,
+      "interpretation": "Descriptive synthetic intention-to-treat rates over a fixed seven-day cohort. No causal claim, significance estimate, or real customer outcome. TTFO describes observed converters only; unconverted accounts are censored. Exposure is reported separately; holdout exposure is contamination."
+    }
+  }
+}

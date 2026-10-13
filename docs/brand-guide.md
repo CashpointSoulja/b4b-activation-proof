@@ -26,6 +26,8 @@ The official brand text describes one green palette across products and a dark g
 
 The business page's copy emphasizes control of company travel and meals, group spending rules, bulk employee onboarding, invitation emails, and order reporting. Its body was verified live. In this environment the `assets.homepage.bolt.eu` stylesheet origin is outside the allowlist, so the business capture is partially unstyled: do not claim its captured layout establishes exact official spacing, font metrics, or colours. Brand direction and the fully styled careers reference establish the observations above. The concept itself is an original application layout, not a clone.
 
+The user supplied a visual treatment requirement: dark-green hero, pale-green surfaces, heavy Inter headings, generous spacing, and pill-shaped calls to action. Adopt that as the user’s design reference, distinct from what the blocked business CSS allowed us to observe. The SVG is a lighter workbench direction; the implemented entrance may use the requested dark-green hero with pale copy and a rounded action while retaining the same independent identity and evidence hierarchy.
+
 ## Original colour tokens
 
 These are selected for this concept and are not sampled or represented as exact Bolt brand values.

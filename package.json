@@ -1,0 +1,19 @@
+{
+  "name": "b4b-activation-proof",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ayo Ahmed — Independent concept. Synthetic B4B activation proof.",
+  "scripts": {
+    "dev": "wrangler dev --ip 0.0.0.0 --port 8787",
+    "deploy": "wrangler deploy",
+    "test": "node --test tests/*.test.js",
+    "eval": "node --input-type=module -e \"import {runEvaluations} from './src/evaluation.js'; const r=runEvaluations(); console.log(JSON.stringify(r,null,2)); process.exitCode=r.failed?1:0\"",
+    "verify:browser": "node scripts/verify-browser.cjs"
+  },
+  "devDependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "playwright": "1.64.0",
+    "wrangler": "^4.45.0"
+  }
+}

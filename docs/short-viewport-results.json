@@ -1,0 +1,12 @@
+{
+  "scope": "Local short-height UI QA, not public recording",
+  "status": "PASS",
+  "results": [
+    "320×568: every modal control visible for valid and invalid previews.",
+    "320×640: every modal control visible for valid and invalid previews.",
+    "390×568: every modal control visible for valid and invalid previews.",
+    "390×640: every modal control visible for valid and invalid previews.",
+    "540×568: every modal control visible for valid and invalid previews.",
+    "540×640: every modal control visible for valid and invalid previews."
+  ]
+}

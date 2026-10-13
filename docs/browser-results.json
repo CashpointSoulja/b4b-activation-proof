@@ -1,0 +1,15 @@
+{
+  "scope": "Local UI QA, not public walkthrough footage",
+  "status": "PASS",
+  "results": [
+    "Desktop entry renders with 40 executed GREEN evaluations and no script errors.",
+    "Explicit billing gate → first synthetic order; duplicate receipt preserves activation; earlier pre-readiness event rejected; TTFO 24 hours.",
+    "Downloaded handoff contains the actual audit, fixed cohort and two idempotency receipts.",
+    "Injected broken validator yields seven RED failures with inspectable expected and actual values.",
+    "Mixed invalid import stays atomic; a concurrent revision causes a visible stale commit error; dialog returns keyboard focus.",
+    "Hostile extraction stays abstained; reviewed fixture qualifies; imported HTML is literal text, unknown evidence abstains, and cohort stays fixed.",
+    "320px: isolated fresh visitor, no horizontal overflow, valid example, every modal action visible, Escape closes.",
+    "390px: isolated fresh visitor, no horizontal overflow, valid example, every modal action visible, Escape closes.",
+    "540px: isolated fresh visitor, no horizontal overflow, valid example, every modal action visible, Escape closes."
+  ]
+}
