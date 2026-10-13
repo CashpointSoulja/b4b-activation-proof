@@ -6,9 +6,7 @@ Unofficial concept. All accounts/events are synthetic. No live CRM, outreach, pa
 
 ## Current delivery status
 
-The requested 105-second portrait walkthrough has **not been recorded**. There is no approved public HTTPS deployment to capture. The Cloudflare authentication check returned HTTP 400 with code `1001`, `Missing Authorization header`; scoped Cloudflare credentials and a public deployment origin are unavailable. No localhost footage, slideshow, invented live URL, or fabricated final cut is supplied in its place.
-
-An additional managed-runtime prerequisite is unresolved: direct public DNS verification returned `EAI_AGAIN` during a check of the public reference host. The recorder keeps its strict public-address validation and fails closed when it cannot resolve a destination. A proxy-resolved request alone is insufficient for that check. Reproduce the sources on a host with working public DNS after the approved public deployment exists; neither this DNS issue nor proxy/CA configuration replaces the main missing deployment authorization.
+The requested 105-second portrait walkthrough has **not been recorded**. It awaits an approved public HTTPS deployment with a working UI and backend. No localhost footage, slideshow, invented live URL, or fabricated final cut is supplied in its place.
 
 The recording and composition sources below are ready for an approved public deployment. A local speech preview, if generated, is **narration draft only**. It does not establish a public deployment or a completed walkthrough. There has been no full-cut watch or listen because no cut exists.
 
@@ -57,7 +55,6 @@ bash scripts/compose-walkthrough.sh work/walkthrough/capture output/walkthrough.
 
 The recorder refuses HTTP, localhost, private/reserved addresses, private DNS destinations, credentials in URLs, and redirects outside the approved origin. Requests are confined to that public HTTPS origin. It interacts through the visible UI; it does not replace responses, generate mock browser frames, mutate backend state through a hidden API, or capture a local application. It writes the raw browser video, scene checkpoint screenshots, download files, and a provenance manifest. An incomplete run cannot be composed.
 
-In a restricted cloud runtime, both URL preflight and Chromium explicitly use inherited `HTTPS_PROXY` (or `HTTP_PROXY`) and keep TLS verification enabled. Node inherits its configured certificate trust. If Chromium needs the environment's exact proxy CA, set `PUBLIC_CAPTURE_CA_FILE` to the same certificate path already configured by `NODE_EXTRA_CA_CERTS`; for this runtime that is `/usr/local/share/ca-certificates/environment-proxy-ca.crt`. The recorder validates that the file is a currently valid CA and pins only that certificate's public key for Chromium. It never enables a global certificate-error bypass. This setting does not grant access to destinations blocked by network policy.
 
 For a voice-only draft while public hosting is blocked:
 
@@ -65,7 +62,7 @@ For a voice-only draft while public hosting is blocked:
 bash scripts/compose-walkthrough.sh --narration-only output/narration-draft.wav
 ```
 
-Speech is synthesized locally using the free voice already available in FFmpeg. No paid voice API is called. The script checks each take length, fits it within its scene, and preserves the scene's silence margin. The public video receives no tool or model authorship credit.
+Speech is synthesized locally using the free voice already available in FFmpeg. No paid voice API is called. The script checks each take length, fits it within its scene, and preserves the scene's silence margin. The public video is labelled as an independent concept.
 
 The composer first normalizes the **complete raw capture** to constant 30 fps using its timestamps. Only then does it trim the complete narrative interval and align it with the nine narration scenes. This ordering handles sparse browser-video timestamps; it must never trim sparse frames first and assume the resulting duration represents elapsed UI time. The output is H.264/AAC, 720 × 1280, 30 fps, exactly 105 seconds. Review frames for each scene and both sides of every boundary, plus a review-required manifest with the cut's checksum, are written under the capture directory's `review/` folder.
 
