@@ -18,7 +18,7 @@ if [[ -e "$final_file" ]]; then
   exit 1
 fi
 for dependency in python3 ffmpeg ffprobe; do command -v "$dependency" >/dev/null || { echo "Missing $dependency" >&2; exit 1; }; done
-if ! ffmpeg -hide_banner -filters 2>/dev/null | grep ' flite ' >/dev/null; then
+if ! ffmpeg -nostdin -hide_banner -filters 2>/dev/null | grep ' flite ' >/dev/null; then
   echo 'A free local FFmpeg speech synthesizer is required; no paid voice fallback is used.' >&2
   exit 1
 fi
@@ -43,7 +43,7 @@ PY
 
 cd "$task_dir"
 while IFS=$'\t' read -r stem seconds; do
-  ffmpeg -hide_banner -loglevel error -f lavfi -i "flite=textfile=${stem}.txt:voice=slt" -ar 48000 -ac 1 "${stem}-raw.wav"
+  ffmpeg -nostdin -hide_banner -loglevel error -f lavfi -i "flite=textfile=${stem}.txt:voice=slt" -ar 48000 -ac 1 "${stem}-raw.wav"
   take_seconds="$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "${stem}-raw.wav")"
   tempo="$(python3 - "$take_seconds" "$seconds" <<'PY'
 import sys
@@ -53,10 +53,10 @@ print(f'{tempo:.8f}')
 PY
 )"
   scene_samples="$((seconds * 48000))"
-  ffmpeg -hide_banner -loglevel error -i "${stem}-raw.wav" -af "atempo=${tempo},loudnorm=I=-16:TP=-1.5:LRA=7,aresample=48000,apad,atrim=end_sample=${scene_samples},asetpts=PTS-STARTPTS" -ar 48000 -ac 1 "${stem}.wav"
+  ffmpeg -nostdin -hide_banner -loglevel error -i "${stem}-raw.wav" -af "atempo=${tempo},loudnorm=I=-16:TP=-1.5:LRA=7,aresample=48000,apad,atrim=end_sample=${scene_samples},asetpts=PTS-STARTPTS" -ar 48000 -ac 1 "${stem}.wav"
   printf "file '%s.wav'\n" "$stem" >> narration-concat.txt
 done < scenes.tsv
-ffmpeg -hide_banner -loglevel error -f concat -safe 0 -i narration-concat.txt -c:a pcm_s16le -ar 48000 -ac 1 narration.wav
+ffmpeg -nostdin -hide_banner -loglevel error -f concat -safe 0 -i narration-concat.txt -c:a pcm_s16le -ar 48000 -ac 1 narration.wav
 python3 - narration.wav <<'PY'
 import sys,wave
 with wave.open(sys.argv[1]) as voice:
@@ -106,8 +106,8 @@ PY
 raw_file="$(cat raw-path.txt)"
 trim_offset="$(cat trim-offset.txt)"
 # Preserve elapsed browser time first. Never trim a sparse browser WebM before fps normalization.
-ffmpeg -hide_banner -loglevel error -i "$raw_file" -vf 'fps=30,setsar=1' -r 30 -fps_mode cfr -an -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p normalized-public-ui.mp4
-ffmpeg -hide_banner -loglevel error -ss "$trim_offset" -i normalized-public-ui.mp4 -i narration.wav -map 0:v:0 -map 1:a:0 -t 105 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -r 30 -fps_mode cfr -c:a aac -b:a 192k -movflags +faststart -metadata title='Ayo Ahmed — Independent concept: B4B Activation Proof' -metadata comment='Unofficial concept. All accounts/events are synthetic. No live CRM, outreach, payments or rides.' "$final_file"
+ffmpeg -nostdin -hide_banner -loglevel error -i "$raw_file" -vf 'fps=30,setsar=1' -r 30 -fps_mode cfr -an -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p normalized-public-ui.mp4
+ffmpeg -nostdin -hide_banner -loglevel error -ss "$trim_offset" -i normalized-public-ui.mp4 -i narration.wav -map 0:v:0 -map 1:a:0 -t 105 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -r 30 -fps_mode cfr -c:a aac -b:a 192k -movflags +faststart -metadata title='Ayo Ahmed — Independent concept: B4B Activation Proof' -metadata comment='Unofficial concept. All accounts/events are synthetic. No live CRM, outreach, payments or rides.' "$final_file"
 python3 - "$final_file" <<'PY'
 import json,subprocess,sys
 probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_format','-show_streams','-of','json',sys.argv[1]]))
@@ -130,7 +130,7 @@ for scene in scenes:
 print('opening\t0.1'); print('ending\t104.8')
 PY
 while IFS=$'\t' read -r label second; do
-  ffmpeg -hide_banner -loglevel error -ss "$second" -i "$final_file" -frames:v 1 "$capture_dir/review/$label.png"
+  ffmpeg -nostdin -hide_banner -loglevel error -ss "$second" -i "$final_file" -frames:v 1 "$capture_dir/review/$label.png"
 done < review-times.tsv
 python3 - "$final_file" "$capture_dir/review/review-required.json" <<'PY'
 import hashlib,json,pathlib,sys
