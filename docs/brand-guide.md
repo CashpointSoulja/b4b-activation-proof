@@ -16,15 +16,15 @@ Display this exact disclaimer prominently before interactive content:
 
 > Unofficial concept. All accounts/events are synthetic. No live CRM, outreach, payments or rides.
 
-Do not add authorship-tool or model attribution to public artifacts. State the human-owned independent concept identity, scope, and evidence limits.
+State the independent concept identity, scope, and evidence limits.
 
 ## Verified observations and original translation
 
-The live careers page uses a light neutral reading surface, near-black body copy, green accents, a left metadata card, a wider right content column, clear headings, a restrained radius, and a dark footer. The full role description was visibly rendered and privately captured with a live browser; the initial server HTML exposed only role headings.
+The live careers page uses a light neutral reading surface, near-black body copy, green accents, a left metadata card, a wider right content column, clear headings, a restrained radius, and a dark footer. The role description was checked against the live careers page.
 
 The official brand text describes one green palette across products and a dark green chosen for readable contrast. It says Bolt changed from Euclid to **Inter**, described as open source. Inter is an appropriate independently licensed interface font; source it from an open-source package with its license, not Bolt's CDN. Use `Inter, ui-sans-serif, system-ui, sans-serif`. A generic system fallback is required when the font is unavailable.
 
-The business page's copy emphasizes control of company travel and meals, group spending rules, bulk employee onboarding, invitation emails, and order reporting. Its body was verified live. In this environment the `assets.homepage.bolt.eu` stylesheet origin is outside the allowlist, so the business capture is partially unstyled: do not claim its captured layout establishes exact official spacing, font metrics, or colours. Brand direction and the fully styled careers reference establish the observations above. The concept itself is an original application layout, not a clone.
+The business page's copy emphasizes control of company travel and meals, group spending rules, bulk employee onboarding, invitation emails, and order reporting. Its copy was checked live. I have not reproduced exact official spacing, font metrics, or colours. The brand direction and careers reference informed the design. The concept itself is an original application layout, not a clone.
 
 The user supplied a visual treatment requirement: dark-green hero, pale-green surfaces, heavy Inter headings, generous spacing, and pill-shaped calls to action. Adopt that as the user’s design reference, distinct from what the blocked business CSS allowed us to observe. The SVG is a lighter workbench direction; the implemented entrance may use the requested dark-green hero with pale copy and a rounded action while retaining the same independent identity and evidence hierarchy.
 
